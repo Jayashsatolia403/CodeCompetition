@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('Apps.Users.urls')),
     path('questions/', include('Apps.Questions.urls')),
+    path('', include('Apps.Playground.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

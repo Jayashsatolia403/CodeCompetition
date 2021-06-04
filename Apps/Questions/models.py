@@ -3,7 +3,6 @@ from django.db import models
 from Apps.Users.models import User
 
 class Questions(models.Model):
-    id = models.IntegerField(unique=True, primary_key=True)
     title = models.CharField(max_length=50)
     statement = models.TextField()
     example1 = models.CharField(max_length=250, blank=True, null=True)

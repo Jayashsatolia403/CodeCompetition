@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from django.core import serializers as core_serializers
 
 from .models import Solution, Questions
 
@@ -7,19 +6,19 @@ from .models import Solution, Questions
 class QuestionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Questions
-        fields = '__all__'
+        fields = ['title', 'statement', 'example1', 'example2', 'example3', 'constraints', 'picture', 'dificulty', 'relatedTopics', 'relatedQuestions']
 
 class SolutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Solution
-        fields = ['code', 'language', 'questionForSolution']
+        fields = ['code', 'language']
     
     def save(self):
         solution = Solution(
             code = self.validated_data['code'],
             userSolution = self.context['request'].user,
             language = self.validated_data['language'],
-            questionForSolution = Questions.objects.filter(id = self.context['questionID'])
+            questionForSolution = Questions.objects.filter(id = self.context['questionID'])[0]
         )
 
         

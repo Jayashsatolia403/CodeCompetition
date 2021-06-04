@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'Apps.Users',
-    'Apps.Questions'
+    'Apps.Questions',
+    'Apps.Playground'
 ]
 
 REST_FRAMEWORK = {

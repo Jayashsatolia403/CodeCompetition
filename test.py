@@ -12,7 +12,7 @@ loginUrl = "http://127.0.0.1:8000/user/login/"
 
 isBugFree = False
 
-for i in range(1000):
+for i in range(50):
     N = 20
     res = ''.join(secrets.choice(string.ascii_uppercase) for _ in range(N))
 

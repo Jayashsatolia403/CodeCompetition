@@ -25,6 +25,7 @@ def questionsDetailView(request, pk):
 @api_view(['POST',])
 def solutionView(request, questionID):
     if request.method == 'POST':
+        print(request.data['code'])
         path = "Apps/Questions/Answers/Questions/"
         serializer = SolutionSerializer(data=request.data, context={'request': request, 'questionID': questionID})
         data = {}
@@ -53,6 +54,8 @@ def solutionView(request, questionID):
 
 @api_view(['GET',])
 def userSolutionView(request, id):
+    id = int(id)
+    print(" >>> ", id)
     data = {}
     x = Solution.objects.filter(userSolution = request.user, questionForSolution=id)
     x = [i.code for i in x]
