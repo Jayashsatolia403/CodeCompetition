@@ -1,9 +1,5 @@
-import sys
-sys.stdin.reconfigure(encoding='utf-8')
-sys.stdout.reconfigure(encoding='utf-8')
-
-
 import requests
+
 
 url = "http://127.0.0.1:8000/8/solution/"
 loginUrl = "http://127.0.0.1:8000/user/login/"
@@ -11,7 +7,11 @@ loginUrl = "http://127.0.0.1:8000/user/login/"
 isBugFree = False
 
 for i in range(1):
-    code = "class Solution: def isEven(self, n): return True"
+    with open('testCode.py', 'r') as file:
+        data = file.read()
+
+
+    code = data
     PARAMETERS = {
         'playerSolution': code
     }
